@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic Smith LLC</title>
+<meta name="description" content="Agentic Smith LLC — independent software consulting for teams running business-critical .NET and web applications. Legacy modernization, custom web development, Azure migration, and ongoing support.">
+<style>
+:root{
+  --bg:#030806;
+  --bg2:#050B07;
+  --surface:#07120B;
+  --surface-alt:#0B1A10;
+  --border:#163020;
+  --border-strong:#23512F;
+  --green:#2CE56C;
+  --green-bright:#6BFFA3;
+  --green-deep:#0B7A38;
+  --green-wash:#0C2415;
+  --matrix:#00FF6A;
+  --cyan:#4FE8D2;
+  --text-strong:#DFFBE6;
+  --text:#B4D6BE;
+  --text-muted:#6F9079;
+  --text-faint:#46604E;
+
+  --mono:ui-monospace,"Cascadia Mono",Consolas,"SF Mono",Menlo,"DejaVu Sans Mono",monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+
+  --glow-soft:0 0 11px rgba(44,229,108,.24);
+
+  --gutter:20px;
+  --maxw:920px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--text);
+  background:var(--bg);
+  background-image:
+    radial-gradient(1100px 640px at 82% -12%, rgba(44,229,108,.10), transparent 60%),
+    radial-gradient(820px 560px at -8% 108%, rgba(0,255,106,.05), transparent 55%);
+  background-attachment:fixed;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--green);text-decoration:none;border-bottom:1px solid rgba(44,229,108,.35)}
+a:hover{color:var(--green-bright);border-bottom-color:var(--green-bright)}
+a:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px}
+strong{color:var(--text-strong);font-weight:600}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+
+/* ---------- terminal window hero ---------- */
+.win{
+  margin-block:40px 0;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  box-shadow:0 30px 90px rgba(0,0,0,.6), 0 0 0 1px rgba(44,229,108,.06), 0 0 60px rgba(44,229,108,.05);
+  overflow:hidden;
+}
+.titlebar{
+  display:flex;align-items:center;gap:9px;
+  height:38px;padding-inline:14px;
+  background:linear-gradient(180deg,#08120C,#050B07);
+  border-bottom:1px solid var(--border);
+  position:relative;
+}
+.titlebar::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(44,229,108,.55),transparent);
+}
+.tb-dot{width:11px;height:11px;border-radius:3px;background:var(--green);box-shadow:var(--glow-soft);flex:0 0 auto}
+.tb-title{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.5px;color:var(--text-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.hero{padding:36px 28px 32px}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);
+}
+h1{
+  font-family:var(--mono);
+  font-size:clamp(28px,6.2vw,44px);
+  line-height:1.12;font-weight:700;letter-spacing:-.5px;
+  color:var(--green);
+  text-wrap:balance;
+  margin-block:14px 0;
+}
+.hero .lead{
+  margin-top:18px;
+  font-size:clamp(16px,2.4vw,18px);
+  color:var(--text-strong);
+}
+.hero .sub{margin-top:14px;color:var(--text)}
+.factline{
+  margin-top:26px;padding-top:18px;border-top:1px solid var(--border);
+  display:flex;flex-wrap:wrap;gap:8px 22px;
+  font-family:var(--mono);font-size:12.5px;color:var(--text-muted);
+}
+.factline span{display:inline-flex;align-items:center;gap:8px}
+.factline span::before{content:"";width:5px;height:5px;border-radius:1px;background:var(--green-deep);flex:0 0 auto}
+
+/* ---------- sections ---------- */
+section{margin-block:56px}
+h2{
+  font-family:var(--mono);
+  font-size:clamp(19px,3.4vw,23px);
+  font-weight:600;color:var(--text-strong);
+  letter-spacing:-.2px;
+  margin-block:10px 0;
+  text-wrap:balance;
+}
+.section-intro{margin-top:12px}
+.rule{height:1px;background:linear-gradient(90deg,var(--border-strong),transparent);margin-top:20px}
+
+/* ---------- services ---------- */
+.services{
+  margin-top:26px;
+  display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
+}
+.svc{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:20px 20px 22px;
+}
+.svc h3{
+  font-family:var(--mono);font-size:14.5px;font-weight:600;
+  color:var(--green-bright);letter-spacing:.2px;line-height:1.35;
+}
+.svc p{margin-top:10px;font-size:14.5px;color:var(--text)}
+
+/* ---------- billing rows ---------- */
+.rows{margin-top:24px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--surface)}
+.row{display:grid;grid-template-columns:186px 1fr;gap:4px 22px;padding:18px 20px;border-top:1px solid var(--border)}
+.row:first-child{border-top:0}
+.row dt{
+  font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:1.2px;text-transform:uppercase;color:var(--text-muted);
+  padding-top:3px;
+}
+.row dd{font-size:15px}
+
+/* ---------- policy prose ---------- */
+.prose{margin-top:22px}
+.prose p{margin-top:14px}
+.prose p:first-child{margin-top:0}
+.prose ul{margin-top:14px;padding-left:0;list-style:none}
+.prose li{position:relative;padding-left:20px;margin-top:10px}
+.prose li::before{
+  content:"";position:absolute;left:2px;top:.68em;
+  width:6px;height:6px;border-radius:1px;background:var(--green-deep);
+}
+
+/* ---------- contact ---------- */
+.contact{
+  margin-top:24px;
+  background:var(--green-wash);
+  border:1px solid var(--border-strong);
+  border-radius:10px;
+  padding:24px 22px;
+  display:grid;gap:20px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.contact .item .k{
+  font-family:var(--mono);font-size:11px;font-weight:600;
+  letter-spacing:1.4px;text-transform:uppercase;color:var(--text-muted);
+}
+.contact .item .v{margin-top:7px;color:var(--text-strong);font-size:15px}
+.contact .item .v a{font-family:var(--mono);font-size:14.5px;overflow-wrap:anywhere}
+.contact .item .note{margin-top:5px;font-size:13.5px;color:var(--text-muted)}
+
+/* ---------- footer ---------- */
+footer{
+  margin-top:64px;padding-block:26px 44px;
+  border-top:1px solid var(--border);
+  font-family:var(--mono);font-size:12.5px;color:var(--text-faint);
+}
+footer .legal{color:var(--text-muted)}
+footer p{margin-top:8px}
+footer a{border-bottom-color:rgba(44,229,108,.25)}
+
+@media (max-width:640px){
+  .hero{padding:28px 20px 26px}
+  .row{grid-template-columns:1fr;gap:8px;padding:16px 18px}
+  .row dt{padding-top:0}
+  .contact{grid-template-columns:minmax(0,1fr)}
+  section{margin-block:46px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="win">
+    <div class="titlebar">
+      <span class="tb-dot" aria-hidden="true"></span>
+      <span class="tb-title">agenticsmith.net</span>
+    </div>
+    <div class="hero">
+      <p class="eyebrow">Independent software consulting</p>
+      <h1>Agentic Smith LLC</h1>
+      <p class="lead">I help teams modernize and maintain the software their business actually runs on &mdash; the .NET and web applications that have been in production for years and can't simply be switched off.</p>
+      <p class="sub">Most of my work is legacy modernization: taking an aging ASP.NET application that still handles real customers and real payments, and moving it onto current .NET, Angular and Azure incrementally, with the old system running in parallel until the new one has proven itself. I also build new applications outright, and stay on afterward to keep them running.</p>
+      <p class="factline">
+        <span>A California limited liability company</span>
+        <span>Formed 2026</span>
+        <span><a href="mailto:nathan@agenticsmith.net">nathan@agenticsmith.net</a></span>
+      </p>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="services">
+      <p class="eyebrow">Services</p>
+      <h2>What I'm hired to do</h2>
+      <div class="rule"></div>
+      <p class="section-intro">Every engagement is scoped in writing before it starts. These are the six kinds of work I take on.</p>
+
+      <div class="services">
+        <article class="svc">
+          <h3>Legacy application modernization</h3>
+          <p>Moving ASP.NET Web Forms and .NET Framework applications onto current .NET and Angular. Includes dependency and database migration, replacing discontinued third-party components, and a cutover plan that runs the legacy and rebuilt systems side by side until the new one is trusted.</p>
+        </article>
+
+        <article class="svc">
+          <h3>Custom web application development</h3>
+          <p>Full builds of line-of-business web applications: ASP.NET Core APIs, Angular or Razor front ends, relational data models, authentication and role-based access, administrative tooling, reporting and PDF generation.</p>
+        </article>
+
+        <article class="svc">
+          <h3>Cloud migration and deployment</h3>
+          <p>Moving applications off shared hosting and on-premises servers into Azure &mdash; environment and network setup, CI/CD pipelines, database migration, logging and monitoring, and a documented rollback path before anything goes live.</p>
+        </article>
+
+        <article class="svc">
+          <h3>Payment and third-party integrations</h3>
+          <p>Connecting applications to the services they depend on: payment processors, transactional email, document generation, and partner or government REST and SOAP endpoints &mdash; including the retry, reconciliation and error handling those integrations need to be trustworthy.</p>
+        </article>
+
+        <article class="svc">
+          <h3>AI and agent integration</h3>
+          <p>Adding AI-backed features to existing products: Model Context Protocol servers that expose a company's own data and actions to an assistant, internal tooling built on that, and the access boundaries that keep it safe to run against production.</p>
+        </article>
+
+        <article class="svc">
+          <h3>Ongoing maintenance and support</h3>
+          <p>Retained availability for systems already in production: bug fixes, dependency and security updates, small feature work, and an agreed response time when something breaks.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="billing">
+      <p class="eyebrow">Billing</p>
+      <h2>How I charge</h2>
+      <div class="rule"></div>
+      <p class="section-intro">Rates are quoted per engagement and written into a statement of work or service agreement that you sign before any billable work begins. Nothing is ever charged that isn't in that signed agreement.</p>
+
+      <dl class="rows">
+        <div class="row">
+          <dt>Hourly</dt>
+          <dd>The default for most work. Time is tracked per task with a written description of what was done, and billed in arrears for hours already worked &mdash; never prepaid.</dd>
+        </div>
+        <div class="row">
+          <dt>Fixed price</dt>
+          <dd>For projects with a clearly defined scope. Quoted as a single total and paid against milestones, each tied to a specific delivery you can inspect before the next one starts.</dd>
+        </div>
+        <div class="row">
+          <dt>Monthly retainer</dt>
+          <dd>For ongoing maintenance and support. A set block of availability each month, billed in advance on the same date. It renews monthly until you cancel, and you're notified by email before each renewal.</dd>
+        </div>
+        <div class="row">
+          <dt>Invoicing</dt>
+          <dd>Invoices arrive by email &mdash; weekly or monthly depending on the engagement &mdash; and itemize every logged entry: date, task, description, hours and rate. Payment is due within 15 days of the invoice date.</dd>
+        </div>
+        <div class="row">
+          <dt>Payment methods</dt>
+          <dd>Card payments are processed securely by Stripe. ACH and bank transfer are available on request.</dd>
+        </div>
+        <div class="row">
+          <dt>Currency &amp; tax</dt>
+          <dd>All amounts are quoted and charged in U.S. dollars (USD). Any applicable sales tax is shown as a separate line on the invoice.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="contact">
+      <p class="eyebrow">Customer service</p>
+      <h2>Getting hold of me</h2>
+      <div class="rule"></div>
+      <p class="section-intro">Email is the fastest route for everything &mdash; new work, questions about an invoice, or a production problem. A real person (me) reads it.</p>
+
+      <div class="contact">
+        <div class="item">
+          <p class="k">Email</p>
+          <p class="v"><a href="mailto:nathan@agenticsmith.net">nathan@agenticsmith.net</a></p>
+          <p class="note">Sales, support and billing</p>
+        </div>
+        <div class="item">
+          <p class="k">Business hours</p>
+          <p class="v">Monday&ndash;Friday<br>9:00&nbsp;AM &ndash; 5:00&nbsp;PM Pacific</p>
+          <p class="note">Closed on U.S. federal holidays</p>
+        </div>
+        <div class="item">
+          <p class="k">Response time</p>
+          <p class="v">Within one business day</p>
+          <p class="note">Same-day for production outages on a support retainer</p>
+        </div>
+        <div class="item">
+          <p class="k">Location</p>
+          <p class="v">San Diego, California</p>
+          <p class="note">United States &mdash; remote engagements worldwide</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="refunds">
+      <p class="eyebrow">Policy</p>
+      <h2>Refunds and disputes</h2>
+      <div class="rule"></div>
+      <div class="prose">
+        <p>I bill for work that has been done, so most invoices cover hours already worked and delivered. Those hours are not refundable as a matter of course &mdash; but if the work isn't what we agreed to, I will make it right.</p>
+        <ul>
+          <li><strong>Work that doesn't match the agreement.</strong> If something I delivered doesn't do what the signed statement of work says it should, email me within 10 business days of the invoice date. I'll correct it at no additional charge. If I can't correct it within a reasonable time, I'll refund the amount billed for that portion of the work.</li>
+          <li><strong>Fixed-price milestones.</strong> A milestone that hasn't been started is refunded in full on request. For a milestone already underway, the refund covers the portion not yet performed, calculated from the tracked hours on that milestone.</li>
+          <li><strong>Retainers.</strong> If you cancel partway through a month you have already paid for, the unused balance of that month is refunded on a pro-rata basis.</li>
+          <li><strong>Duplicate or mistaken charges.</strong> Refunded in full, immediately, no questions asked.</li>
+          <li><strong>How refunds are issued.</strong> Approved refunds go back to the original payment method within 10 business days. Card refunds may take a few additional days to appear, depending on your bank.</li>
+        </ul>
+        <p><strong>Disputes.</strong> If you disagree with a charge, email <a href="mailto:nathan@agenticsmith.net">nathan@agenticsmith.net</a> with the invoice number and what looks wrong. I acknowledge every billing dispute within 2 business days and aim to resolve it within 10. Please reach out to me before filing a chargeback with your bank &mdash; almost everything is faster to fix directly, and I'd rather fix it than argue about it.</p>
+      </div>
+    </section>
+
+    <section id="cancellation">
+      <p class="eyebrow">Policy</p>
+      <h2>Cancellation</h2>
+      <div class="rule"></div>
+      <div class="prose">
+        <p>There is no minimum term beyond what's written in your signed agreement, and no cancellation fee. Either of us can end an engagement.</p>
+        <ul>
+          <li><strong>Project and hourly work.</strong> Either party may end the engagement at any time with 14 days' written notice by email.</li>
+          <li><strong>Monthly retainers.</strong> Cancel by email at least 30 days before your next renewal date and the retainer will not renew. Cancelling inside that window stops the following renewal; the current month is refunded pro-rata as described above.</li>
+          <li><strong>What you owe on the way out.</strong> Work performed up to the end date, and nothing after it. Any prepaid amount covering work that was never performed is refunded under the refund policy above.</li>
+          <li><strong>What you keep.</strong> Everything produced and paid for is yours &mdash; source code, documentation and credentials, handed over in the repositories and cloud accounts you control. I'll also write up the current state of the work and anything outstanding, so whoever picks it up next isn't starting cold.</li>
+        </ul>
+        <p>To cancel, email <a href="mailto:nathan@agenticsmith.net">nathan@agenticsmith.net</a>. You'll get a written confirmation with your end date and a final invoice, if one is due.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="legal">Agentic Smith LLC &mdash; a California limited liability company, formed 2026. San Diego, California, United States.</p>
+    <p>&copy; 2026 Agentic Smith LLC &middot; <a href="mailto:nathan@agenticsmith.net">nathan@agenticsmith.net</a> &middot; agenticsmith.net</p>
+    <p>Last updated 19 September 2026.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
